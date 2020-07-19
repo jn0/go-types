@@ -17,7 +17,7 @@ import (
 	var traffic Bytes
 	var t0, t1 time.Time
 …
-	for t0 = time.Now() {
+	for t0 = time.Now();; {
 		data := endpoint.Read()
 		traffic.Add(uint64(len(data)))
 		…
