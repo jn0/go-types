@@ -11,7 +11,7 @@ The code like
 import (
 	"time"
 	"fmt"
-	. "xxx/types"
+	. "github.com/jn0/go-types" // here we go
 )
 …
 	var traffic Bytes
