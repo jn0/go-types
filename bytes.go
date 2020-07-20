@@ -5,18 +5,18 @@ import "strconv"
 // Simple counter-like type with fancy .String() formatter.
 // The value becomes formatted as for "%7.3f" with binary SI suffix followed by `B`.
 // Suffixes are from `Ki` (kilo-, 2^10) to `Ei` (exa-, 2^60).
-// .
+//
 // It is supposed to declare a
 // 	var traffic Bytes
 // and use `traffic.Add(size)` to accumulate the value, then
 // use (implicitely) `traffic.String()` to make pretty print.
-// .
+//
 // One may find useful .Rate(secs) or .BitRate(secs) formatters too.
-// .
+//
 // The formatted Bytes value takes up to 10 character positions.
 // The formatted Rate() value takes up to 12 c.p.
 // The formatted BitRate() value takes up to 13 c.p.
-// .
+//
 // NOTE: They are "traffic bytes"! The "disk bytes" are usually decimal, not binary.
 type Bytes uint64
 
