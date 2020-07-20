@@ -15,17 +15,20 @@ import (
 )
 …
 	var traffic Bytes
-	var t0, t1 time.Time
+	var t0 time.Time
+	var dt time.Duration
 …
 	for t0 = time.Now();; {
 		data := endpoint.Read()
 		traffic.Add(uint64(len(data)))
 		…
 	}
-	t1 = time.Now()
+	dt = time.Now().Sub(t0)
 
 	fmt.Printf("Got %s in %s at %s.\n",
-		traffic, t2.Sub(t1), traffic.BitRate(t2.Sub(t1).Seconds()))
+		traffic,
+		t1.Sub(dt),
+		traffic.BitRate(dt.Seconds()))
 …
 ```
 will show up something like
