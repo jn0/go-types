@@ -1,15 +1,20 @@
 package utypes
 
-import "strconv"
+import (
+	"strconv"
+)
 
 // Simple counter-like type with fancy .String() formatter.
 // The value becomes formatted as for "%7.3f" with binary SI suffix followed by `B`.
 // Suffixes are from `Ki` (kilo-, 2^10) to `Ei` (exa-, 2^60).
 //
-// It is supposed to declare a
+// It is supposed for use like
 // 	var traffic Bytes
-// and use `traffic.Add(size)` to accumulate the value, then
-// use (implicitely) `traffic.String()` to make pretty print.
+//	var t time.Time = time.Now()
+// 	traffic.Add(12345) // accumulate the value
+//	var d time.Duration = time.Now().Sub(t) // find duration
+//	fmt.Printf("Got %s in %s at %s", // pretty print traffic, time, and rate
+//		traffic, d, traffic.BitRate(d.Seconds()))
 //
 // One may find useful .Rate(secs) or .BitRate(secs) formatters too.
 //
