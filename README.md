@@ -26,9 +26,7 @@ import (
 	dt = time.Now().Sub(t0)
 
 	fmt.Printf("Got %s in %s at %s.\n",
-		traffic,
-		t1.Sub(dt),
-		traffic.BitRate(dt.Seconds()))
+		traffic, dt, traffic.BitRate(dt.Seconds()))
 …
 ```
 will show up something like
